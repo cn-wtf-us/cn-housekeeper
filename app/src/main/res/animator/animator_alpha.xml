@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:ordering="sequentially">
+
+    <!--["repeat"重复 | "reverse"翻转]-->
+    <!--valueFrom="float | int | color"-->
+    <!--repeatCount：infinite无线重复-->
+   <!-- <objectAnimator
+        android:propertyName="alpha"
+        android:duration="300"
+        android:valueFrom="0.5"
+        android:valueTo="1.0"
+        android:repeatCount="2"
+        android:repeatMode="reverse"
+        android:valueType="floatType" />
+    &lt;!&ndash; <objectAnimator android:duration="500"
+         android:propertyName="rotation"
+         android:valueFrom="0"
+         android:valueTo="360"
+         android:repeatCount="infinite"
+         android:valueType="floatType"
+         />&ndash;&gt;
+    <objectAnimator
+        android:duration="500"
+        android:propertyName="y"
+        android:valueFrom="0"
+        android:valueTo="-3600"
+        android:repeatMode="reverse"
+        android:repeatCount="infinite"
+        android:valueType="floatType" />-->
+    <set android:ordering="sequentially">
+        <objectAnimator
+            android:propertyName="alpha"
+            android:duration="1000"
+            android:valueFrom="0.5"
+            android:valueTo="1.0"
+            android:repeatCount="2"
+            android:repeatMode="reverse"
+            android:valueType="floatType" />
+        <!-- <objectAnimator android:duration="500"
+             android:propertyName="rotation"
+             android:valueFrom="0"
+             android:valueTo="360"
+             android:repeatCount="infinite"
+             android:valueType="floatType"
+             />-->
+        <objectAnimator
+            android:duration="500"
+            android:propertyName="y"
+            android:valueFrom="0"
+            android:valueTo="-3600"
+            android:repeatMode="reverse"
+            android:repeatCount="infinite"
+            android:valueType="floatType" />
+    </set>
+</set>
