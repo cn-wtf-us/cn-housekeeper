@@ -3,13 +3,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:orientation="vertical"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".AnimationActivity">
-
+    tools:context="cn.feicui.com.housekeeper.WriterReadActivity">
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,30 +18,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <!--xml的格式保存数据-->
         <Button
-            android:onClick="view"
+            android:onClick="sp"
             android:layout_weight="1"
-            android:text="补间动画"
-            android:id="@+id/btn_view_animation"
+            android:text="SP读写数据"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
+        <!--文件的形式-->
+        <Button
+            android:text="file读写数据"
+            android:layout_weight="1"
+            android:onClick="file"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+<!--
 
-        <Button
-            android:text="属性动画"
-            android:layout_weight="1"
-            android:onClick="object"
-            android:id="@+id/btn_object_animation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
         <Button
             android:text="帧动画"
             android:layout_weight="1"
             android:onClick="drawable"
             android:id="@+id/btn_drawable_animation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content" />-->
 
     </LinearLayout>
-
-
 </LinearLayout>

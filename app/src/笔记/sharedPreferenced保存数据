@@ -1,0 +1,46 @@
+SharedPreferences
+适用范围：保存少量的数据，且这些数据的格式非常简单（字符串型、基本类型的值）；
+应用程序的各种配置信息（如是否打开音效、是否使用震动效果、小游戏的玩家积分等），解锁口 令密码等。
+核心原理：保存基于XML文件存储的key-value键值对数据，通常用来存储一些简单的配置信息
+
+官方笔记：https://developer.android.com/training/basics/data-storage/shared-preferences.html
+//使用步骤 先获取对象
+    您可以通过调用以下两种方法之一创建新的共享首选项文件或访问现有的文件：
+
+    getSharedPreferences() — 如果您需要按照您用第一个参数指定的名称识别的多个共享首选项文件，
+    请使用此方法。 您可以从您的应用中的任何 Context 调用此方法。
+
+    getPreferences() — 如果您只需使用Activity的一个共享首选项，请从 Activity 中使用此方法。
+    因为此方法会检索属于该Activity的默认共享首选项文件，您无需提供名称。
+
+    例如，以下代码在 Fragment 内执行。它访问通过资源字符串 R.string.preference_file_key 识别的共享首选项文件并且使用专用模式打开它，从而仅允许您的应用访问文件。
+
+    Context context = getActivity();
+    SharedPreferences sharedPref = context.getSharedPreferences(
+            getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+
+    命名您的共享首选项文件时，您应使用对于您的应用而言唯一可识别的名称，比如 "com.example.myapp.PREFERENCE_FILE_KEY"
+
+    或者，如果您只需Activity的一个共享首选项文件，您可以使用 getPreferences() 方法：
+
+    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+
+    注意：如果您创建带 MODE_WORLD_READABLE 或 MODE_WORLD_WRITEABLE 的共享首选项文件，那么知道文件标识符 的任何其他应用都可以访问您的数据。
+    写入共享首选项
+
+    要写入共享首选项文件， 请通过对您的 SharedPreferences 调用 edit() 来创建一个 SharedPreferences.Editor。
+
+    传递您想要使用诸如 putInt() 和 putString() 方法写入的键和值。然后调用 commit() 以保存更改。例如：
+
+    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPref.edit();
+    editor.putInt(getString(R.string.saved_high_score), newHighScore);
+    editor.commit();
+
+    从共享首选项读取信息
+
+    要从共享首选项文件中检索值，请调用诸如 getInt() 和 getString() 等方法，为您想要的值提供键，并根据需要提供要在键不存在的情况下返回的默认值。 例如：
+
+    SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+    int defaultValue = getResources().getInteger(R.string.saved_high_score_default);
+    long highScore = sharedPref.getInt(getString(R.string.saved_high_score), defaultValue);

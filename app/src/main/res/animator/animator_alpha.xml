@@ -50,7 +50,7 @@
             android:valueFrom="0"
             android:valueTo="-3600"
             android:repeatMode="reverse"
-            android:repeatCount="2"
+            android:repeatCount="infinite"
             android:valueType="floatType" />
     </set>
 </set>

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HouseKeeper</string>
+    <string name="preference_username_key">cn.feicui.com.housekeeper.preference_username</string>
 </resources>

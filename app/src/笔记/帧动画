@@ -1,0 +1,32 @@
+概念：帧动画一个接一个的加载一系列的图片资源，形成一个动画
+Drawable animation lets you load a series of Drawable resources one after another
+ to create an animation.
+
+https://developer.android.com/guide/topics/graphics/drawable-animation.html
+ 实现步骤：
+ 1.res/drawable 目录下，创建一个xmL文件 ，里面内容如 drawable_animation.xml
+ 2.给控件添加一个background属性，引用上面写的drawable资源
+    例如
+    <ImageView
+        android:id="@+id/iv_hzw"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/drawable_animation"//默认的帧动画
+        />
+ 3.通过代码来实现动画的运行
+
+         //通过代码动态改变帧动画
+        iv_hzw.setBackgroundResource(R.drawable.drawable_animation);
+        //AnimationDrawable是Drawable（图片）的一个子类
+         final AnimationDrawable animation = (AnimationDrawable) iv_hzw.getBackground();
+
+         view.findViewById(R.id.btn_start).setOnClickListener(
+                 new View.OnClickListener() {
+                     @Override
+                     public void onClick(View v) {
+                     //开始运行帧动画
+                         animation.start();
+                     }
+                 }
+         );

@@ -1,17 +1,14 @@
 package cn.feicui.com.housekeeper;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import cn.feicui.com.housekeeper.fragment.DrawableAnimatorFragment;
 import cn.feicui.com.housekeeper.fragment.ObjectAnimatorFragment;
 import cn.feicui.com.housekeeper.fragment.ViewAnimFragment;
 
 public class AnimationActivity extends AppCompatActivity {
-
-    private Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,22 +32,20 @@ public class AnimationActivity extends AppCompatActivity {
 
     public void view(View view) {
         //简写方式
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (fragment != null) {
-            transaction.remove(fragment);
-        }
-        fragment = new ViewAnimFragment();
-        transaction.add(R.id.frame_layout, fragment).commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout, new ViewAnimFragment()).commit();
     }
 
     public void object(View view) {
         //简写方式
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        if (fragment != null) {
-            transaction.remove(fragment);
-        }
-        fragment = new ObjectAnimatorFragment();
-        transaction.add(R.id.frame_layout, fragment).commit();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout,  new ObjectAnimatorFragment()).commit();
+    }
+
+    public void drawable(View view) {
+        //帧动画
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout,  new DrawableAnimatorFragment()).commit();
     }
 
 }

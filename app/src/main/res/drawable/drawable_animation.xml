@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list
+    android:oneshot="false"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<!--oneshot 属性为true，只播放一次，默认是false，无限播放-->
+    <item
+        android:drawable="@drawable/i1"
+        android:duration="400" />
+    <item
+        android:drawable="@drawable/i2"
+        android:duration="400" />
+    <item
+        android:drawable="@drawable/i3"
+        android:duration="400" />
+    <item
+        android:drawable="@drawable/i4"
+        android:duration="400" />
+    <item
+        android:drawable="@drawable/i5"
+        android:duration="400" />
+    <item
+        android:drawable="@drawable/i6"
+        android:duration="400" />
+
+</animation-list>

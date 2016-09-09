@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.setClass(MainActivity.this, AnimationActivity.class);
                         break;
                     case 1:
+                        intent.setClass(MainActivity.this, WriterReadActivity.class);
                         break;
                     case 2:
                         break;
