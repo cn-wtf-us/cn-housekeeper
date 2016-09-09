@@ -9,10 +9,9 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="cn.feicui.com.housekeeper.MainActivity">
 
-    <ImageView
-        android:id="@+id/iv_hzw"
-        android:scaleType="centerCrop"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/a22"/>
+    <!--知识要点主界面-->
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </RelativeLayout>

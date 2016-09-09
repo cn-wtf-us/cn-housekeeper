@@ -1,0 +1,44 @@
+
+1.官网路径 https://developer.android.com/training/basics/fragments/fragment-ui.html
+
+1.自定义一个类 继承 fragment ，重写 onCreateView方法，前提先写一个布局文件 R.layout.object_animator_view
+public class ObjectAnimatorFragment extends Fragment {
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view  = inflater.inflate(R.layout.object_animator_view, null);
+        ImageView iv_hzw = (ImageView) view.findViewById(R.id.iv_hzw);
+//        ImageView iv_hzw = (ImageView) findViewById(R.id.iv_hzw);
+//
+        //3.0以上的系统才能看到效果
+
+        AnimatorSet animator = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.animator.animator_alpha);
+        animator.setTarget(iv_hzw);
+        animator.start();
+        return view ;
+    }
+
+
+}
+
+2. 把fragment使用到Activity中
+    Activity的布局文件的写法
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:id="@+id/frame_layout"
+        tools:context=".AnimationActivity">
+
+    </FrameLayout>
+
+  在Activity的oncreate方法中写上
+      getSupportFragmentManager().beginTransaction().
+                    add(R.id.frame_layout,new ObjectAnimatorFragment()).commit();
