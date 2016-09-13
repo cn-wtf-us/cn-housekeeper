@@ -22,13 +22,10 @@ import cn.feicui.com.housekeeper.R;
 
 /**
  * Created by Administrator on 2016/9/8 0008.
- */
-
-
-
+ *
 /*把fragment当成一个动态显示UI的view*/
-    /*第二步*/
-public class FileFragment extends Fragment implements View.OnClickListener {
+/*第二步*/
+public class FileInterStoreFragment extends Fragment implements View.OnClickListener {
 
     private EditText et_username;
 
@@ -64,13 +61,13 @@ public class FileFragment extends Fragment implements View.OnClickListener {
                     FileOutputStream outputStream = null;
                     String name = "";
                     try {
+                        //获取文件名
                         name = file.getName();
                         /*
                         * Context.MODE_APPEND 是在原来的基础上进行追加数据
                         * */
                         outputStream = context.openFileOutput(name, Context.MODE_APPEND);
                         outputStream.write(username.getBytes());
-                        outputStream.close();
                         Toast.makeText(context, "username write successful", Toast.LENGTH_SHORT).show();
                     } catch (FileNotFoundException e) {
                         Toast.makeText(context, name+"文件找不到", Toast.LENGTH_SHORT).show();
@@ -81,6 +78,7 @@ public class FileFragment extends Fragment implements View.OnClickListener {
                     }finally {
                         if (outputStream!=null) {
                             try {
+                                //释放资源
                                 outputStream.close();
                             } catch (IOException e) {
                                 e.printStackTrace();

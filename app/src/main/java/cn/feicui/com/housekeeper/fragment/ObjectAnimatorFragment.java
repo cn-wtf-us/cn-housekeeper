@@ -30,10 +30,13 @@ public class ObjectAnimatorFragment extends Fragment {
 //        ImageView iv_hzw = (ImageView) findViewById(R.id.iv_hzw);
 //
         //3.0以上的系统才能看到效果
+        AnimatorSet animator = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+            animator = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.animator.animator_alpha);
+            animator.setTarget(iv_hzw);
+            animator.start();
+        }
 
-        AnimatorSet animator = (AnimatorSet) AnimatorInflater.loadAnimator(getContext(), R.animator.animator_alpha);
-        animator.setTarget(iv_hzw);
-        animator.start();
         return view ;
     }
 

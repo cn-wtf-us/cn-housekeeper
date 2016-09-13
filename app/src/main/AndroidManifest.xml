@@ -3,8 +3,11 @@
     package="cn.feicui.com.housekeeper">
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- java.io.IOException: open failed: EACCES (Permission denied) -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,7 +21,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".AnimationActivity" />
-        <activity android:name=".WriterReadActivity"></activity>
+        <activity android:name=".WriterReadActivity" />
+        <activity android:name=".SqliteDatabaseActivity"></activity>
     </application>
 
 </manifest>

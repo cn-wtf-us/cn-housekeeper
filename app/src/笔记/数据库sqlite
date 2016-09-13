@@ -1,0 +1,49 @@
+
+ android.database.sqlite 软件包中提供所有需要的类
+
+将数据保存到数据库对于重复或结构化数据（比如契约信息） 而言是理想之选。
+比如，保存通讯录信息，通话记录等等，可以使用数据库存储
+
+SQLiteOpenHelper 抽象类：通过从此类继承实现用户类，来提供数据库创建、打开、关闭等操作
+SQLiteDatabase 数据库访问类：执行对数据库的插入记录、查询记录等操作。
+Cursor 查询结构操作类：用来访问查询结果中的记录
+
+SQLiteDatabase   这个类是核心类，用于管理和操作SQLite数据库，几乎所有的数据库操作，
+最终都将由这个类完成。通过SQLiteOpenHelper子类对象的getWritableDatabase()
+和getReadableDatabase()可获取到,  提供了execSQL()和rawQuery()方法，
+通过SQL语句进行数据库的操作。
+
+execSQL()和rawQuery()方法的区别。
+    execSQL()方法可以执行insert、delete、update和CREATE TABLE之类有更改行为的SQL语句，
+    没有返回值；
+    rawQuery()用于执行select语句，有返回值；
+    共同点：前提会写sql语句
+
+Cursor 常用的方法
+    moveToNext()	将Curor的游标移动到下一条 使用时候必用方法
+     getInt(int columnIndex)	根据列名称获得列索引ID
+    getString(int columnIndex)	根据索引ID 拿到表中存的字段
+
+    注意：close() //关闭游标，释放资源
+
+Android除了提供上述执行SQL语句的方法，SQLiteDatabase还专门提供了
+对应于添加、删除、更新、查询的操作方法： insert()、delete()、update()和query() 。
+这些方法实际上是给那些不太了解SQL语法的开发者使用的。
+
+在使用Insert()方法时候我们需要参数ContentValues。ContentValues类似于MAP，相对于MAP
+，它提供了存取数据对应的put(String key, Xxx value)key为字段名称，value为字段值
+    ContentValues values = new ContentValues();
+            values.put("name", "林计钦");
+            values.put("age", 24);
+    要执行insert方法，需要有数据库SQLiteDatabase对象，数据库对象通过SQLiteOpenHelper
+    来获取
+    SQLiteDatabase db = databaseHelper.getWritableDatabase();
+    db.insert(“表名”, null, values);
+
+ 使用步骤
+    1.
+    通过实现 BaseColumns 接口，您的内部类可继承调用的主键字段_ID ，
+    某些 Android 类（比如光标适配器）
+    将需要内部类拥有该字段。 这并非必需项，但可帮助您的数据库与 Android 框架协调工作。
+    2.
+    自定一个类 继承  SQLiteOpenHelper 覆盖方法

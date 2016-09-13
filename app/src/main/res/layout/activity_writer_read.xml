@@ -16,6 +16,7 @@
         android:id="@+id/frame_layout"
         />
     <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <!--xml的格式保存数据-->
@@ -27,20 +28,25 @@
             android:layout_height="wrap_content" />
         <!--文件的形式-->
         <Button
-            android:text="file读写数据"
+            android:text="file读写内置存储数据"
             android:layout_weight="1"
             android:onClick="file"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
-<!--
 
         <Button
-            android:text="帧动画"
+            android:text="file读写外置sd数据"
             android:layout_weight="1"
-            android:onClick="drawable"
-            android:id="@+id/btn_drawable_animation"
+            android:onClick="sdcard"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />-->
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:text="读写assets中的数据"
+            android:layout_weight="1"
+            android:onClick="assets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 </LinearLayout>

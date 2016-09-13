@@ -17,6 +17,7 @@ https://developer.android.com/guide/topics/graphics/drawable-animation.html
  3.通过代码来实现动画的运行
 
          //通过代码动态改变帧动画
+
         iv_hzw.setBackgroundResource(R.drawable.drawable_animation);
         //AnimationDrawable是Drawable（图片）的一个子类
          final AnimationDrawable animation = (AnimationDrawable) iv_hzw.getBackground();
@@ -30,3 +31,5 @@ https://developer.android.com/guide/topics/graphics/drawable-animation.html
                      }
                  }
          );
+
+  4.注意：帧动画的start方法，不能放在Activity 的oncreate方法中执行

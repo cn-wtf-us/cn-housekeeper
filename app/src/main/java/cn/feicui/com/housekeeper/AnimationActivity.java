@@ -14,7 +14,8 @@ public class AnimationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
-
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frame_layout,  new DrawableAnimatorFragment()).commit();
         /*第三步
         这个包可以兼容2.0以上的系统
         * 如果fragment导入的是android.support.v4.app.Fragment包， 使用getSupportFragmentManager()

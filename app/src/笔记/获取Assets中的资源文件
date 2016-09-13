@@ -1,0 +1,12 @@
+
+1. assets中的文件不会被编译，所有不能通过R.string.xxx的方法获取
+    通过AssetsManager来管理这个目录
+2. AS默认是没有这个目录，自己创建这个目录assets，和res同级别，所以跟它并列都存在main目录下
+
+3.copy db文件到当前目录下 ，要打开db文件，需要下载专用的应用程序(sqliteExpert...)，来打开
+
+4.  AssetManager assetManager = context.getAssets();
+    String path = "db/commonnum.db";
+    InputStream inputStream = assetManager.open(path);
+
+注意：拷贝文件，注意查看源文件和复制品德大小是否一致
