@@ -43,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
                     case 2:
                         intent.setClass(MainActivity.this, SqliteDatabaseActivity.class);
                         break;
+                    case 3:
+                        intent.setClass(MainActivity.this, DialogActivity.class);
+                        break;
                 }
                 startActivity(intent);
             }

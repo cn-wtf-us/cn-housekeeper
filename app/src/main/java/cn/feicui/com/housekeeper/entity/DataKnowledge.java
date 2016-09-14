@@ -8,6 +8,7 @@ public class DataKnowledge {
     public static String[]  strs = {
            "animation",
             "writer read data",
-            "sqlite"
+            "sqlite",
+            "dialog"
     };
 }

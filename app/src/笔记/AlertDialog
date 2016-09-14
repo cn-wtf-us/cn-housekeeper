@@ -1,0 +1,27 @@
+AlertDialog 构建提醒对话框
+    的位置固定，而PopupWindow的位置可以随意
+       	AlertDialog是非阻塞线程的
+        AlertDialog弹出的时候，后台可是还可以做其他事情。
+       	PopupWindow是阻塞线程的, 这就意味着在我们退出这个弹出框之前，程序会一直等待
+体系
+ --|Dialog
+        --|AlertDialog
+            --| ProgressDialog
+            --| TimePickerDialog
+            --| DatePickerDialog
+常用方法：
+setTitle(); 	设置对话框标题
+setIcon(); 	设置对话框图标
+setMessage();	设置对话框内容
+setItems(); 	设置要在对话框中显示的项目列表
+setView(); 	设置自定义的对话框样式
+setSingleChoiceItems(); 　　	设置对话框显示一个单选框
+setMultiChoiceItems();        	设置对话框显示一系列的选框
+setPositiveButton(); 　　　　	设置对话框显示一个“确定”按钮
+setNeutralButton(); 　　　　	设置对话框显示一个“退出”按钮
+setNegativeButton(); 	设置对话框显示一个“取消”按钮
+create(); 　　　　	创建一个AlertDialog对话框
+show(); 	显示对话框
+
+--官方笔记
+    https://developer.android.com/guide/topics/ui/dialogs.html
