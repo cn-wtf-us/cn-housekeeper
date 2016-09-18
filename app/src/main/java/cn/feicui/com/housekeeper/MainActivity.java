@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         intent.setClass(MainActivity.this, DialogActivity.class);
                         break;
+                    case 4:
+                        intent.setClass(MainActivity.this, ThemeAndStyleActivity.class);
+                        break;
                 }
                 startActivity(intent);
             }

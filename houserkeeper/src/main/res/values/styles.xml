@@ -2,11 +2,11 @@
 
     <!-- 整个项目的样式.  parent .好比java类的继承-->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- 自定义自己的样式风格好比覆盖父类的属性， -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
+    <!-- 自定义自己的样式风格好比覆盖父类的属性， -->
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+</style>
 
     <!--写样式，也是为了重复使用，方便管理-->
     <!--name 是样式的唯一标识-->

@@ -1,0 +1,39 @@
+官方笔记--https://developer.android.com/training/material/theme.html#Inheritance
+Style
+   可以看做很多属性的集合，主要用于控件，比如TextView，Imageview，Button，Listview等等
+    只影响单个控件的风格和样式
+Theme
+    可以看做很多属性的集合，主要用于清单文件下，影响整个应用应用程序或者整个界面
+    比如窗口的背景颜色，标题颜色，状态栏颜色等等。。。
+    application 和activity中，
+    格式：android:theme="@style/AppTheme"
+    如果activity没有定义theme属性，就会使用application的theme，
+    好比相同名称的局部变量和成员变量的使用规则
+
+    style 级别 高于 theme ,
+    style的属性，不能覆盖主题的属性，是两个派系
+
+android系统提供的style资源一共分两种
+以<style>标签定义的资源
+如：Theme.NoTitleBar  不显示应用程序标题栏
+引用方式为： @android:style/Theme.NoTitleBar
+以<attr>标签定义的资源
+如 ：progressBarStyleHorizontal 横向进度条
+引用方式为：  ?android:attr/progressBarStyleHorizontal
+
+style 继承方式：
+    <!--style 的继承方法，第一种，通过parent属性来实现-->
+        <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+                <!-- Customize your theme here. -->
+                <item name="colorPrimary">@color/colorPrimary</item>
+                <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+                <item name="colorAccent">@color/colorAccent</item>
+        </style>
+
+     <!--"父style"+"."+"子style"-->
+        <style name="AppTheme.ActivityTheme">
+            <!-- Customize your theme here. -->
+            <item name="colorPrimary">@color/green</item>
+            <item name="colorPrimaryDark">@color/green</item>
+            <item name="colorAccent">@color/green</item>
+        </style>

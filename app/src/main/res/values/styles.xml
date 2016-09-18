@@ -1,6 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
+    <!--style 的继承方法，第一种，通过parent属性来实现-->
     <style name="AppTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -8,4 +9,20 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--"父style"+"."+"子style"-->
+    <style name="AppTheme.ActivityTheme">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/green</item>
+        <item name="colorPrimaryDark">@color/green</item>
+        <item name="colorAccent">@color/green</item>
+    </style>
+    <!--样式，以后最单词来区分-->
+    <style name="MyTextViewStyle">
+        <item name="android:textSize">@dimen/smallTextSize</item>
+    </style>
+
+
+    <style name="MyEditTextStyle">
+        <item name="android:colorAccent">@color/red</item>
+    </style>
 </resources>

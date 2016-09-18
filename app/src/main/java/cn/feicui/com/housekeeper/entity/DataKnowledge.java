@@ -9,6 +9,7 @@ public class DataKnowledge {
            "animation",
             "writer read data",
             "sqlite",
-            "dialog"
+            "dialog",
+            "theme and style"
     };
 }
