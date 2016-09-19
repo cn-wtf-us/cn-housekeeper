@@ -1,0 +1,17 @@
+
+ViewPager 是一个容器，继承自ViewGroup，它的使用必须需要设置适配器
+           自己写一个类继承自PagerAdapter(是一个抽象类)的类 ，
+           因为viewPager通常是和fragment一起使用，
+           所以系统api给我们提供两个继承了PagerAdapter的类，分别是：
+                FragmentPagerAdapter和FragmentStatePagerAdapter
+           只存在兼容包android.support.v4.view
+
+ 要在activity中使用fragment必须让这个activity继承或者间接继承自fragmentActivity这个类
+ 使用步骤：
+ 1. 在xml布局文件中使用,在activity中进行初始化(找到控件，给它设置适配器)
+ 2. 自定义适配器，写一个类继承自FragmentStatePagerAdapter，重写抽象方法（包括自定一个fragment类）
+ 3. 给viewpager绑定适配器
+
+
+ 官网笔记：
+    https://developer.android.com/training/animation/screen-slide.html#pagetransformer

@@ -10,6 +10,7 @@ public class DataKnowledge {
             "writer read data",
             "sqlite",
             "dialog",
-            "theme and style"
+            "theme and style",
+            "viewpager with fragment"
     };
 }

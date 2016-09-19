@@ -1,7 +1,6 @@
 package cn.feicui.com.houserkeeper;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -15,15 +14,13 @@ import cn.feicui.com.houserkeeper.entity.TelClassInfo;
 import cn.feicui.com.houserkeeper.util.DBRead;
 import cn.feicui.com.houserkeeper.util.MyAssetManager;
 
-public class TelClassActivity extends AppCompatActivity {
+public class TelClassActivity extends BaseActivity {
 
     private static final String TAG = "TelClassActivity";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         if (!DBRead.isExistsTeldbFile()) {
             //1.
             MyAssetManager assetManager = new MyAssetManager();
@@ -32,9 +29,7 @@ public class TelClassActivity extends AppCompatActivity {
             Log.d(TAG, "onCreate: "+path);
             Toast.makeText(TelClassActivity.this, "ddd", Toast.LENGTH_SHORT).show();
         }
-
-
-        ArrayList<TelClassInfo> telClassInfos = DBRead.readTeldbClasslist();
+        final ArrayList<TelClassInfo> telClassInfos = DBRead.readTeldbClasslist();
 
         ListView listView = (ListView) findViewById(R.id.show_tel_class_list_view);
 
@@ -54,6 +49,9 @@ public class TelClassActivity extends AppCompatActivity {
                 //当条目被点击，松开的时候，触发该方法
                 Toast.makeText(TelClassActivity.this, id+"=="+position, Toast.LENGTH_SHORT).show();
                 //a.跳转到TelClassActivity界面，并传递idx值
+                Bundle bundle = new Bundle();
+                bundle.putInt("idx",telClassInfos.get(position).getIdx());
+                startActivityWithBundle(TelNumActivity.class,bundle);
             }
         });
     }

@@ -49,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
                     case 4:
                         intent.setClass(MainActivity.this, ThemeAndStyleActivity.class);
                         break;
+                    case 5:
+                        intent.setClass(MainActivity.this, ViewPagerWithFragmentActivity.class);
+                        break;
                 }
                 startActivity(intent);
             }

@@ -20,7 +20,8 @@ public class DBRead {
 
     static {
         // 默认位置
-        String dbFileDir = "data/data/cn.feicui.com.houserkeeper/files/";//等价于context.getfiledir()
+        //等价于context.getfiledir()
+        String dbFileDir = "data/data/cn.feicui.com.houserkeeper/files/";
         // 存储卡
         // String sdcardState = Environment.getExternalStorageState();
         // if (sdcardState.equals(Environment.MEDIA_MOUNTED)) {

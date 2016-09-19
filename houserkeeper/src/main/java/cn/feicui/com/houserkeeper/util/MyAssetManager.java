@@ -17,7 +17,6 @@ import java.io.InputStream;
 public class MyAssetManager {
 
     private static final String TAG = "MyAssetManager";
-
     /**
      * 返回的file是数据库文件存放的位置
      * @param context
