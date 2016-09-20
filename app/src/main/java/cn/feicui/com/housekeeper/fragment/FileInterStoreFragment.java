@@ -1,6 +1,7 @@
 package cn.feicui.com.housekeeper.fragment;
 
 import android.content.Context;
+import android.hardware.Camera;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -11,14 +12,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import cn.feicui.com.housekeeper.R;
+
+import java.io.*;
 
 /**
  * Created by Administrator on 2016/9/8 0008.
@@ -89,7 +85,8 @@ public class FileInterStoreFragment extends Fragment implements View.OnClickList
                 }
                 break;
             case R.id.btn_read:
-                //将用户名存到内置存储
+                //从内置存储里读取用户名
+//                CameraManager cameraManager = (CameraManager) context.getSystemService(Context.CAMERA_SERVICE);
                 File file = new File(context.getFilesDir(), FILE_USERNAME);
                 FileInputStream fileInputStream = null;
                 String file_name = null;
@@ -98,9 +95,9 @@ public class FileInterStoreFragment extends Fragment implements View.OnClickList
                     file_name = file.getName();
                     fileInputStream = context.openFileInput(file_name);
                     byte[] buf = new byte[1024];
-                    int eof = 0;
+                    int eof;
                     while ((eof=fileInputStream.read(buf)) !=-1) {
-                        read_username += new String(buf, 0, buf.length);
+                        read_username += new String(buf, 0, eof);
                     }
                     et_username.setText(read_username);
                     Toast.makeText(context, "username read successful", Toast.LENGTH_SHORT).show();

@@ -11,6 +11,7 @@ public class DataKnowledge {
             "sqlite",
             "dialog",
             "theme and style",
-            "viewpager with fragment"
+            "viewpager with fragment",
+            "take picture"
     };
 }
