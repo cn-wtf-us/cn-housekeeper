@@ -1,6 +1,5 @@
 package cn.feicui.com.housekeeper;
 
-import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -11,10 +10,12 @@ import android.widget.ListView;
 
 import cn.feicui.com.housekeeper.entity.DataKnowledge;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity
+{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -29,12 +30,15 @@ public class MainActivity extends AppCompatActivity {
 //        if (listView != null)
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
+        {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+            {
                 //当条目item被点击的时候回调此方法
                 Intent intent = new Intent();
-                switch (position) {
+                switch (position)
+                {
                     case 0:
                         intent.setClass(MainActivity.this, AnimationActivity.class);
                         break;
@@ -54,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                         intent.setClass(MainActivity.this, ViewPagerWithFragmentActivity.class);
                         break;
                     case 6:
-                        intent.setClass(MainActivity.this, MediaPlayerActivity.class);
+                        intent.setClass(MainActivity.this, TakePicActivity.class);
                         break;
                 }
                 startActivity(intent);
