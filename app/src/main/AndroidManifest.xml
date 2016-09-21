@@ -28,8 +28,9 @@
         <activity android:name=".DialogActivity" />
         <activity
             android:name=".ThemeAndStyleActivity"
-            android:theme="@style/AppTheme.ActivityTheme"></activity>
-        <activity android:name=".ViewPagerWithFragmentActivity"></activity>
+            android:theme="@style/AppTheme.ActivityTheme" />
+        <activity android:name=".ViewPagerWithFragmentActivity" />
+        <activity android:name=".MediaPlayerActivity"></activity>
     </application>
 
 </manifest>

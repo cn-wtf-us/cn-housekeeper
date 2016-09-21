@@ -1,0 +1,17 @@
+
+MediaPlayer
+官方笔记：https://developer.android.com/guide/topics/media/mediaplayer.html#mpandservices
+    start()     让一个处于Paused状态的MediaPlayer对象从之前暂停的地方恢复播放
+    stop()     停止播放
+    seekTo() 调整播放的位置
+    setLooping(boolean)  开启循环模式  true 表示循环，false 不循环
+
+    创建MediaPlayer的对象的两种方式：
+        1.通过create方法 ,只能播放 保存在你应用程序下 res/raw/ directory 文件
+            播放本地的raw文件目录下的音频文件
+             (保存在你应用程序下 res/raw/ directory):
+            MediaPlayer mediaPlayer = MediaPlayer.create(context, R.raw.sound_file_1);
+            mediaPlayer.start(); // no need to call prepare(); create() does that for you
+        2.通过new 对象 ，播放本地存储的文件，网络资源，asset目录下的
+            MediaPlayer mp = new MediaPlayer();
+

@@ -1,5 +1,6 @@
 package cn.feicui.com.housekeeper;
 
+import android.app.Service;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -51,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 5:
                         intent.setClass(MainActivity.this, ViewPagerWithFragmentActivity.class);
+                        break;
+                    case 6:
+                        intent.setClass(MainActivity.this, MediaPlayerActivity.class);
                         break;
                 }
                 startActivity(intent);

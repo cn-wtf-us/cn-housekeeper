@@ -1,0 +1,31 @@
+Service
+    官方笔记：https://developer.android.com/guide/components/services.html
+
+    服务启动有两种方式：
+        startService();
+            一但开启服务，不管启动它的组件是否被销毁，就一直在后台运行，直到调用stopSelf或
+            stopService();举例，下载文件
+        bindService();
+            一旦绑定服务，只有当所有启动它的组件销毁之后，它才会被销毁；客户端和服务端的一种模式；
+
+    创建服务的对象
+           创建service的子类，重写一些重要的方法；
+
+           onStartCommand();
+                当服务是以startService()的方式启动的，会调用此方法
+           onBind();
+                 当服务是以bindService()的方式启动的，会调用此方法
+           onCreate();
+                 不管以何种方式启动服务，都会调用此方法，只会调用一次(服务在运行，不会调用)
+           onDestroy();
+                 不管以何种方式启动服务，当服务销毁的时候，都会调用此方法
+                 释放资源，比如，关闭下载任务的线程，等等
+
+    如同 Activity（以及其他组件）一样，您必须在应用的清单文件中声明所有服务。
+    <manifest ... >
+      ...
+      <application ... >
+          <service android:name=".ExampleService" />
+          ...
+      </application>
+    </manifest>
