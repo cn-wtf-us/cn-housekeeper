@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/HouseKeeper.iml" filepath="$PROJECT_DIR$/HouseKeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/cn-housekeeper.iml" filepath="$PROJECT_DIR$/cn-housekeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/houserkeeper/houserkeeper.iml" filepath="$PROJECT_DIR$/houserkeeper/houserkeeper.iml" />

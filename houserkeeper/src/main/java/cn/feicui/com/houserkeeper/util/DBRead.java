@@ -3,7 +3,6 @@ package cn.feicui.com.houserkeeper.util;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import cn.feicui.com.houserkeeper.entity.TelClassInfo;
@@ -13,46 +12,13 @@ import cn.feicui.com.houserkeeper.entity.TelNumberInfo;
  * Created by Administrator on 2016/9/14 0014.
  */
 public class DBRead {
-    /**
-     * 通讯大全 File
-     */
-    public static File telFile;
-
-    static {
-        // 默认位置
-        //等价于context.getfiledir()
-        String dbFileDir = "data/data/cn.feicui.com.houserkeeper/files/";
-        // 存储卡
-        // String sdcardState = Environment.getExternalStorageState();
-        // if (sdcardState.equals(Environment.MEDIA_MOUNTED)) {
-        // dbFileDir = Environment.getExternalStorageDirectory() +
-        // "/azyphone/cache";
-        // }
-        File fileDir = new File(dbFileDir);
-        fileDir.mkdirs(); // 文件目录的创建
-        telFile = new File(dbFileDir, "commonnum.db");
-        LogUtil.d("DBRead", "telFile dir path: " + dbFileDir);
-    }
-
-    /**
-     * 检测是否存在通讯大全 DB文件
-     */
-    public static boolean isExistsTeldbFile() {
-        // 没有通讯大全 File
-//        File toFile = telFile;
-//        if (!toFile.exists() || toFile.length() <= 0) {
-//            return false;
-//        }
-//        return true;
-        return !telFile.exists() || telFile.length() <= 0;
-    }
 
     /**
      * 读取telFile这个数据库文件中的 classlist这个表内的数据
      *
      * @throws Exception
      */
-    public static ArrayList<TelClassInfo> readTeldbClasslist() {
+    public static ArrayList<TelClassInfo> readTeldbClasslist(String telFile) {
         ArrayList<TelClassInfo> classListInfos = new ArrayList<TelClassInfo>();
         // 打开 DB文件
         SQLiteDatabase db = null;
@@ -95,7 +61,7 @@ public class DBRead {
      *
      * @throws Exception
      */
-    public static ArrayList<TelNumberInfo> readTeldbTable(int idx) {
+    public static ArrayList<TelNumberInfo> readTeldbTable(String telFile,int idx) {
         ArrayList<TelNumberInfo> numberInfos = new ArrayList<>();
         //idx为classlist表中电话的 ID，根据 idx值进行指定页面的跳转
         String sql = "select * from table" + idx;

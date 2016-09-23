@@ -12,6 +12,7 @@ public class DataKnowledge {
             "dialog",
             "theme and style",
             "viewpager with fragment",
-            "take picture"
+            "take picture",
+            "service"
     };
 }

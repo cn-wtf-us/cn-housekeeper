@@ -1,7 +1,6 @@
 package cn.feicui.com.houserkeeper;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -12,7 +11,6 @@ import java.util.ArrayList;
 import cn.feicui.com.houserkeeper.adapter.TelClassAdapter;
 import cn.feicui.com.houserkeeper.entity.TelClassInfo;
 import cn.feicui.com.houserkeeper.util.DBRead;
-import cn.feicui.com.houserkeeper.util.MyAssetManager;
 
 public class TelClassActivity extends BaseActivity {
 
@@ -21,15 +19,8 @@ public class TelClassActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (!DBRead.isExistsTeldbFile()) {
-            //1.
-            MyAssetManager assetManager = new MyAssetManager();
-            //path 就是db文件存放的路径
-            String path = assetManager.copyDbFileToSd(this);
-            Log.d(TAG, "onCreate: "+path);
-            Toast.makeText(TelClassActivity.this, "ddd", Toast.LENGTH_SHORT).show();
-        }
-        final ArrayList<TelClassInfo> telClassInfos = DBRead.readTeldbClasslist();
+        MyApplication application = (MyApplication) getApplication();
+        final ArrayList<TelClassInfo> telClassInfos = DBRead.readTeldbClasslist(application.telFile);
 
         ListView listView = (ListView) findViewById(R.id.show_tel_class_list_view);
 
